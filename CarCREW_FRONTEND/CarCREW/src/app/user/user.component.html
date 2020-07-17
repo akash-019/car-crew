@@ -1,0 +1,38 @@
+<div class="d-block m-5 w-25"  style="float: right;">
+    <h1>ALL USER  <i class="fa fa-users" aria-hidden="true"></i></h1>
+    <input type="text" id="Search" class="form-control" placeholder="Search User">
+    
+
+</div>
+<div class="container" style="overflow: auto;">
+        <table id="usertable" class="table table table-striped table-bordered table-hover">
+                <thead>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mobile_No</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of userdata">
+                   
+                    <td>{{user.User_Name}}</td>
+                    <td>{{user.User_Mobile_No}}</td>
+                    <td>{{user.User_Email}}</td>
+                    <td>{{user.User_Password}}</td>
+                    <td>{{user.User_Role}}</td>
+                    <td>{{user.User_Address}}</td>
+                    <td><button class="btn btn-info" (click)="edit(user._id)"><i class="fas fa-pencil-alt"></i></button></td>
+                    <td><button class="btn btn-danger" (click)="delete(user._id)"><i class="far fa-trash-alt"></i></button></td>
+                  </tr>
+            
+                </tbody>
+              </table>
+              <div class="justify-content-center">
+              <button class="btn btn-success" (click)="add()"><i class="fas fa-plus"></i> Add new</button>
+                </div>
+</div>
+

@@ -1,0 +1,83 @@
+<div class="p-5"
+    style="background:url('assets/img/car1.jpg');  background-size: cover;  background-repeat:no-repeat;background-attachment: fixed;">
+
+    <div class="m-5 bg-white p-3">
+        <b class="badge badge-success text-white m-3"><h1>Your Profile</h1></b>
+        <table class="table table table-striped table-bordered table-hover">
+            <tr>
+                <td scope="col">Name</td>
+                <td>{{userdata.User_Name}}</td>
+            </tr>
+            <tr>
+                <td scope="col">Mobile_No</td>
+                <td>{{userdata.User_Mobile_No}}</td>
+            </tr>
+            <tr>
+                <td scope="col">Email</td>
+                <td>{{userdata.User_Email}}</td>
+            </tr>
+            <tr>
+                <td scope="col">Password</td>
+                <td>{{userdata.User_Password}}</td>
+            </tr>
+            <tr>
+                <td scope="col">Role</td>
+                <td>{{userdata.User_Role}}</td>
+            </tr>
+            <tr>
+                <td scope="col">Address</td><td>{{userdata.User_Address}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-sm-10 col-lg-4 col-md-8">
+        <h1 class="card-header text-white">Edit Profile</h1>
+        <div class="card  ">
+
+
+
+            <div class="card-body">
+
+                <h5 class="card-title">Enter Details</h5>
+                <form [formGroup]="myform" class="form-group">
+                    <div class="card-text">
+                        <div class="form-group">
+                            Name
+                            <input type="text" placeholder="Name" required class="form-control"
+                                formControlName="User_Name" />
+                        </div>
+
+                        <div class="form-group">
+                            Email
+                            <input type="email" placeholder="Email" required class="form-control"
+                                formControlName="User_Email" />
+                        </div>
+                        <div class="form-group">
+                            Password
+                            <input type="password" placeholder="Password" required class="form-control"
+                                formControlName="User_Password" />
+                        </div>
+                        <div class="form-group">
+                            Mobile No
+                            <input type="number" placeholder="Mobile" required class="form-control"
+                                formControlName="User_Mobile_No" />
+                        </div>
+                        <div class="form-group">
+                            Address
+                            <textarea type="text" placeholder="Address" required class="form-control"
+                                formControlName="User_Address"></textarea>
+                        </div>
+
+                        <div class="form-group" *ngIf="ispassword">
+                            <div class="alert alert-danger">Some Thing Wrong!</div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary" (click)="add()">
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                Thank you?.
+            </div>
+        </div>
+    </div>
+</div>

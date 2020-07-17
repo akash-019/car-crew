@@ -1,0 +1,61 @@
+<div class="p-5"
+    style="background:url('assets/img/car3.jpg');  background-size: cover;  background-repeat:no-repeat;background-attachment: fixed;">
+
+
+    <div class="col-sm-10 col-lg-4 col-md-8">
+        <h1 class="card-header text-white">Add Service</h1>
+        <div class="card  ">
+
+
+            
+           <div class="card-body">
+
+                <h5 class="card-title">Enter Details</h5>
+                <form [formGroup]="myform" class="form-group">
+                    <div class="card-text">
+                        <div class="form-group">
+                            Service_Name
+                            <select class="form-control" formControlName="Service_Category_Id">
+                                <option *ngFor="let c of servicecate" [ngValue]="c._id">{{c.Service_Name}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                                Service_Status
+                            <select required class="form-control" formControlName="Service_Status">
+                                    <option value="pending" selected>pending</option>
+                                    <option value="in-progress">in-progress</option>
+                                    <option value="complate">complate</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                                Service_Car_No
+                            <input type="text" placeholder="Service_Car_No" required class="form-control"
+                                formControlName="Service_Car_No" />
+                        </div>
+                        <div class="form-group">
+                                Service_Paid_Status
+                                <select type="text" placeholder="true/false" required class="form-control"
+                                formControlName="Service_Paid_Status">
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                Service_Customer
+                                <select class="form-control" formControlName="Service_Customer_Id">
+                                        <option *ngFor="let c of userdata" [ngValue]="c._id">{{c.User_Name}}</option>
+                                    </select> </div>
+                        <div class="form-group" *ngIf="ispassword">
+                            <div class="alert alert-danger">Some Thing Wrong!</div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary" (click)="add()">
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                Thank you?.
+            </div>
+        </div>
+    </div>
+</div>

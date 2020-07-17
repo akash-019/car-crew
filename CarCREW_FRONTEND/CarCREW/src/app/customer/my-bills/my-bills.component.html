@@ -1,0 +1,65 @@
+<div class="d-block m-5 p-3 w-25 container" style="float: right;">
+    <h1>BILLs <i class="fa fa-tags" aria-hidden="true"></i></h1>
+    <input type="text" id="Search" class="form-control" placeholder="Search User">
+</div>
+
+<div class="container" style="overflow: auto;">
+    <table id="table" class="table table table-striped table-bordered table-hover">
+        <thead>
+            <th scope="col">Customer_Name</th>
+            <th scope="col">Customer_ID</th>
+            <th scope="col">Bill_ID</th>
+            <th scope="col">Services</th>
+            
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let bill of billdata">
+
+                <ng-container *ngIf="userdata.id==bill.Bill_Customer_Id">
+                    <td><b>{{userdata.username}}</b></td>
+                    <td><b>{{userdata.id}}</b></td>
+
+
+                    <td>{{bill._id}}</td>
+
+
+                    <td>
+                        <table class="table table table-striped table-bordered table-hover">
+                            <thead>
+                                <th scope="col">Service_ID</th>
+                                <th scope="col">Customer_ID</th>
+                                <th scope="col">Service_Date</th>
+                                <th scope="col">Service_Name</th>
+                                <th scope="col">Service_Price</th>
+                                <th scope="col">Service_Description</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of servicedata">
+                                    <ng-container *ngIf="s.Service_Customer_Id==bill.Bill_Customer_Id">
+                                        <td>{{s._id}}</td>
+                                        <td>{{s.Service_Customer_Id}}</td>
+                                        <td>{{s.Service_Date | date}}</td>
+                                        <ng-container *ngFor="let sc of servcate">
+                                            <ng-container *ngIf="s.Service_Category_Id==sc._id">
+                                                <td>{{sc.Service_Name}}</td>
+                                                <td>{{sc.Service_Price}}</td>
+                                                <td>{{sc.Service_Description}}</td>
+
+                                            </ng-container>
+
+                                        </ng-container>
+                                    </ng-container>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                    
+                </ng-container>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
